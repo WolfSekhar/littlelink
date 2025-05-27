@@ -14,6 +14,7 @@
 /* Grid
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   .container {
+	  display:flex;
 	position:relative;
 	width:100%;
 	max-width:37.5rem;     				/* 600px */
