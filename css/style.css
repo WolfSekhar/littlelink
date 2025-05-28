@@ -13,54 +13,62 @@
 
 /* Grid
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  .container {
-	  display:flex;
-	position:relative;
-	width:100%;
-	max-width:37.5rem;     				/* 600px */
-    text-align:center;
-	margin:0 auto;
-	padding:3rem 1.25rem 0 1.25rem;
-	box-sizing:border-box;
-}
-.container-left {
-	position:relative;
-	width:100%;
-	max-width:37.5rem;
-	text-align:left;
-	margin:0 auto;
-	padding:0 1.25rem;
-	box-sizing:border-box;
-}
-.container-left p {
-	margin-bottom: 1rem;  				/* 16px space between paragraphs */
-  }
-.column {
-	position:center;
-	width:100%;
-	float:center;
-	box-sizing:border-box;
-}
-/* For devices larger than 400px */
-  @media (min-width:25rem) {            /* 400px */
-    .container {
-	width:85%;
-	padding-left:0;
-	padding-right:0;
-}
-}/* For devices larger than 550px */
-  @media (min-width:34.375rem) {        /* 550px */
-    .container {
-	width:80%;
-}
-.column,.columns {
-	margin-left:0;
-}
-.column:first-child,.columns:first-child {
-	margin-left:0;
-}
+.container {
+  display: grid; /* Changed from flex to grid for better column control */
+  grid-template-columns: 1fr; /* Single column on small screens */
+  gap: var(--spacing-m); /* 24px space between columns */
+  position: relative;
+  width: 100%;
+  max-width: 37.5rem; /* 600px */
+  text-align: center;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-m) 0 var(--spacing-m); /* Existing padding */
+  box-sizing: border-box;
 }
 
+.container-left {
+  position: relative;
+  width: 100%;
+  max-width: 37.5rem;
+  text-align: left;
+  margin: 0 auto;
+  padding: 0 var(--spacing-m);
+  box-sizing: border-box;
+}
+
+.container-left p {
+  margin-bottom: var(--spacing-s); /* 16px space between paragraphs */
+}
+
+.column {
+  width: 100%; /* Full width for single column */
+  box-sizing: border-box;
+  /* Removed float: center (invalid and unnecessary with grid) */
+  /* Removed position: center (invalid property) */
+}
+
+/* For devices larger than 400px */
+@media (min-width: 25rem) { /* 400px */
+  .container {
+    width: 85%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 34.375rem) { /* 550px */
+  .container {
+    width: 80%;
+    grid-template-columns: 1fr 1fr 1fr; /* Two columns on larger screens */
+  }
+  .column {
+    margin-left: 0;
+  }
+  .column:first-child {
+    margin-left: 0;
+  }
+}
 /* Base Styles
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   body {
